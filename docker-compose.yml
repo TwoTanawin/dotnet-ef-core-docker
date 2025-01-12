@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: twotanawin/backend_movie:0.1
+    container_name: backend_movie
+    ports:
+      - "5038:5038"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:5038"
+      ConnectionStrings__DefaultConnection: "Host=backend_db;Database=movie_app;Username=admin;Password=password"
+    depends_on:
+      - backend_db
+
+  migrator:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: twotanawin/migrator_movie:0.1
+    container_name: backend_movie_migrator
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=backend_db;Database=movie_app;Username=admin;Password=password"
+    depends_on:
+      - backend_db
+    command: ["dotnet", "ef", "database", "update"]
+
+  backend_db:
+    image: postgres:16
+    container_name: backend_db
+    platform: linux/amd64
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: movie_app
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - G:/computing/dotnet/dotnet-ef-core-docker/db/initdb:/docker-entrypoint-initdb.d
+
+  backend_pgadmin:
+    image: dpage/pgadmin4
+    container_name: backend_pgadmin
+    platform: linux/amd64
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend_db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: twotanawin/frontend__movie:0.1
+    platform: linux/amd64
+    ports:
+      - "8086:80"
+
+volumes:
+  postgres_data:
+  pgadmin_data:

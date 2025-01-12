@@ -270,3 +270,15 @@ G:\computing\dotnet\dotnet-ef-core-docker\backend\obj\Debug\net8.0\refint\backen
 G:\computing\dotnet\dotnet-ef-core-docker\backend\obj\Debug\net8.0\backend.pdb
 G:\computing\dotnet\dotnet-ef-core-docker\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 G:\computing\dotnet\dotnet-ef-core-docker\backend\obj\Debug\net8.0\ref\backend.dll
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\web.config
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\web.config
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\appsettings.Development.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\appsettings.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\backend.deps.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\backend.runtimeconfig.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\backend.staticwebassets.endpoints.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\appsettings.Development.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\appsettings.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\backend.deps.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\backend.runtimeconfig.json
+G:\computing\dotnet\dotnet-ef-core-docker\backend\bin\Debug\net8.0\Pubblich\Pubblich\backend.staticwebassets.endpoints.json

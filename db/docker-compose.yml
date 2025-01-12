@@ -11,6 +11,10 @@ services:
       POSTGRES_DB: movie_app
     ports:
       - "5433:5432"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - G:/computing/dotnet/dotnet-ef-core-docker/db/initdb:/docker-entrypoint-initdb.d
+      # - G:/computing/dotnet/dotnet-ef-core-docker/db/initdb:/dump  # Map host path to container path
 
   backend_pgadmin:
     image: dpage/pgadmin4
