@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>{{data.isEdit ? 'Edit Movie' : 'Add Movie'}}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="movieForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="Enter movie title" />
+      <mat-error *ngIf="movieForm.get('title')?.hasError('required')">Title is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre">
+        <mat-option *ngFor="let genre of genres" [value]="genre">{{genre}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="movieForm.get('genre')?.hasError('required')">Genre is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Release Date</mat-label>
+      <input matInput formControlName="releaseDate" type="date" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="accent" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>
