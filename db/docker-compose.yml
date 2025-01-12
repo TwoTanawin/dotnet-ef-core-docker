@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:  
+  backend_db:
+    image: postgres:16
+    container_name: backend_db
+    platform: linux/amd64
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: movie_app
+    ports:
+      - "5433:5432"
+
+  backend_pgadmin:
+    image: dpage/pgadmin4
+    container_name: backend_pgadmin
+    platform: linux/amd64
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend_db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  pgadmin_data:
